@@ -1,0 +1,182 @@
+[gd_scene load_steps=13 format=3 uid="uid://b6h7shihpwsdp"]
+
+[ext_resource type="Script" uid="uid://cv56ukb7y8ed3" path="res://scripts/user_interface/main_menu.gd" id="1_5t0xv"]
+[ext_resource type="Texture2D" uid="uid://djfjoql4fji7j" path="res://assets/sprites/sea.png" id="1_edk11"]
+[ext_resource type="Theme" uid="uid://cvgbkdlufbs4j" path="res://assets/themes/theme.tres" id="2_5t0xv"]
+[ext_resource type="Texture2D" uid="uid://b85x1l2nmmael" path="res://assets/sprites/swimming_turtle.png" id="3_wtf1b"]
+[ext_resource type="Texture2D" uid="uid://dijatqlchokjc" path="res://assets/sprites/floor.png" id="4_urexa"]
+[ext_resource type="PackedScene" uid="uid://dy6ooqqv6bwce" path="res://scenes/user_interface/options_menu.tscn" id="6_wtf1b"]
+
+[sub_resource type="SystemFont" id="SystemFont_qv2sr"]
+font_weight = 525
+font_stretch = 175
+generate_mipmaps = true
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_g1hdb"]
+atlas = ExtResource("3_wtf1b")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_sdd6a"]
+atlas = ExtResource("3_wtf1b")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ua8qe"]
+atlas = ExtResource("3_wtf1b")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_upnmg"]
+atlas = ExtResource("3_wtf1b")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_44fa0"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_g1hdb")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_sdd6a")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ua8qe")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_upnmg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 6.0
+}]
+
+[node name="main_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_5t0xv")
+
+[node name="sea" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_edk11")
+
+[node name="floor" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -176.0
+offset_top = -80.0
+offset_right = 176.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("4_urexa")
+expand_mode = 1
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 0
+theme_override_constants/margin_left = 6
+theme_override_constants/margin_top = 6
+theme_override_constants/margin_right = 6
+theme_override_constants/margin_bottom = 6
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+theme_override_constants/separation = 48
+
+[node name="seperator" type="Control" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 1
+theme = ExtResource("2_5t0xv")
+theme_override_constants/line_spacing = 0
+theme_override_constants/shadow_offset_x = 0
+theme_override_constants/shadow_offset_y = 0
+theme_override_constants/outline_size = 0
+theme_override_constants/shadow_outline_size = 0
+theme_override_fonts/font = SubResource("SystemFont_qv2sr")
+text = "Swimmy Turtle"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_stretch_ratio = 5.5
+mouse_filter = 0
+theme_override_constants/separation = 11
+alignment = 1
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/HBoxContainer"]
+layout_mode = 2
+mouse_filter = 0
+theme_override_constants/separation = 29
+alignment = 1
+
+[node name="animation_slot" type="Control" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(64, 88)
+layout_mode = 2
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="MarginContainer/HBoxContainer/VBoxContainer/animation_slot"]
+position = Vector2(120, 56)
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_44fa0")
+autoplay = "default"
+frame = 3
+frame_progress = 0.56930315
+
+[node name="best_score_label" type="Label" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+layout_mode = 2
+theme = ExtResource("2_5t0xv")
+theme_override_colors/font_color = Color(1, 0.8, 0, 1)
+theme_override_colors/font_shadow_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 36
+text = "Best Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="start_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+focus_mode = 0
+theme = ExtResource("2_5t0xv")
+text = "Start"
+autowrap_trim_flags = 64
+icon_alignment = 1
+
+[node name="options_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(184, 56)
+layout_mode = 2
+theme = ExtResource("2_5t0xv")
+text = "Options"
+icon_alignment = 1
+
+[node name="quit_button" type="Button" parent="MarginContainer/HBoxContainer/VBoxContainer"]
+custom_minimum_size = Vector2(160, 56)
+layout_mode = 2
+size_flags_horizontal = 4
+theme = ExtResource("2_5t0xv")
+text = "Quit"
+
+[node name="options_menu" parent="." instance=ExtResource("6_wtf1b")]
+visible = false
+layout_mode = 1
+
+[connection signal="back_to_main_menu" from="options_menu" to="." method="_on_options_menu_back_to_main_menu"]

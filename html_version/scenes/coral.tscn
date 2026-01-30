@@ -1,0 +1,44 @@
+[gd_scene load_steps=6 format=3 uid="uid://s24fmxlqdla7"]
+
+[ext_resource type="Texture2D" uid="uid://cqf5qop1m8l3l" path="res://assets/coral.png" id="1_wvmom"]
+[ext_resource type="Script" uid="uid://2ilgc540qhn" path="res://scripts/coral.gd" id="1_ykfrq"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ykfrq"]
+size = Vector2(32, 639)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_l3i4c"]
+size = Vector2(32, 639)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_qqx7l"]
+size = Vector2(1, 124)
+
+[node name="coral" type="Area2D" groups=["corals"]]
+script = ExtResource("1_ykfrq")
+
+[node name="lower" type="Sprite2D" parent="."]
+texture = ExtResource("1_wvmom")
+offset = Vector2(0, 380)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, 380.5)
+shape = SubResource("RectangleShape2D_ykfrq")
+
+[node name="upper" type="Sprite2D" parent="."]
+texture = ExtResource("1_wvmom")
+offset = Vector2(0, -380)
+flip_v = true
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -380.5)
+shape = SubResource("RectangleShape2D_l3i4c")
+
+[node name="score_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="score_area"]
+position = Vector2(16.5, 0)
+shape = SubResource("RectangleShape2D_qqx7l")
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]
+[connection signal="body_entered" from="score_area" to="." method="_on_score_area_body_entered"]

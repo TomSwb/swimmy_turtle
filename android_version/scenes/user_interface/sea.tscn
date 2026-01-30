@@ -1,0 +1,14 @@
+[gd_scene load_steps=3 format=3 uid="uid://cdwmpidx6xtq0"]
+
+[ext_resource type="Script" uid="uid://d14rs04nkw5fs" path="res://scripts/user_interface/sea.gd" id="1_1pls0"]
+[ext_resource type="Texture2D" path="res://assets/sprites/background.png" id="2_k0mn4"]
+
+[node name="sea" type="ParallaxBackground"]
+script = ExtResource("1_1pls0")
+
+[node name="sea" type="ParallaxLayer" parent="."]
+motion_mirroring = Vector2(352, 0)
+
+[node name="sprite2D" type="Sprite2D" parent="sea"]
+position = Vector2(176, 320)
+texture = ExtResource("2_k0mn4")

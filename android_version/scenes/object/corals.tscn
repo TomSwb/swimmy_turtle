@@ -1,0 +1,30 @@
+[gd_scene load_steps=4 format=3 uid="uid://c7kplgkvlx65n"]
+
+[ext_resource type="Script" uid="uid://dq63wfv58rxi4" path="res://scripts/object/corals.gd" id="1_ocs23"]
+[ext_resource type="PackedScene" uid="uid://q4j5meqy5w3q" path="res://scenes/object/coral.tscn" id="2_mgv1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_ocs23"]
+size = Vector2(8, 118)
+
+[node name="corals" type="CharacterBody2D" groups=["corals"]]
+script = ExtResource("1_ocs23")
+
+[node name="top_coral" parent="." instance=ExtResource("2_mgv1n")]
+position = Vector2(0, -284)
+rotation = -3.1415925
+
+[node name="bottom_coral" parent="." instance=ExtResource("2_mgv1n")]
+position = Vector2(0, 284)
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]
+position = Vector2(-8, 0)
+rect = Rect2(8, -57, 8, 113)
+
+[node name="score_area" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="score_area"]
+position = Vector2(4, 0)
+shape = SubResource("RectangleShape2D_ocs23")
+
+[connection signal="screen_exited" from="VisibleOnScreenNotifier2D" to="." method="_on_screen_exited"]
+[connection signal="area_exited" from="score_area" to="." method="_on_score_area_area_exited"]

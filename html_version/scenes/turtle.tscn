@@ -1,0 +1,84 @@
+[gd_scene load_steps=12 format=3 uid="uid://dp70of3qe0nar"]
+
+[ext_resource type="Texture2D" uid="uid://codnkkp6cjkkm" path="res://assets/dying_turtle.png" id="1_1l2iw"]
+[ext_resource type="Script" uid="uid://us7a8qp4vd15" path="res://scripts/turtle.gd" id="1_hbk6c"]
+[ext_resource type="Texture2D" uid="uid://b85x1l2nmmael" path="res://assets/swimming_turtle.png" id="2_hbk6c"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_4lu78"]
+atlas = ExtResource("1_1l2iw")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hbk6c"]
+atlas = ExtResource("2_hbk6c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_bc3fs"]
+atlas = ExtResource("2_hbk6c")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_86a57"]
+atlas = ExtResource("2_hbk6c")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_vgn41"]
+atlas = ExtResource("2_hbk6c")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_udfqq"]
+atlas = ExtResource("2_hbk6c")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_luuqt"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_4lu78")
+}],
+"loop": false,
+"name": &"dying",
+"speed": 3.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hbk6c")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_bc3fs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_86a57")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_vgn41")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_udfqq")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_m0v8i"]
+radius = 8.877738
+height = 22.899183
+
+[node name="turtle" type="CharacterBody2D"]
+scale = Vector2(1.7404124, 1.8228362)
+script = ExtResource("1_hbk6c")
+
+[node name="AnimateSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_luuqt")
+animation = &"idle"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(1.421085e-14, -1)
+rotation = 1.0483418
+scale = Vector2(1.0619619, 1.5540959)
+shape = SubResource("CapsuleShape2D_m0v8i")

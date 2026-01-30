@@ -1,0 +1,59 @@
+[gd_scene load_steps=6 format=3 uid="uid://b3cw8hwg2gml2"]
+
+[ext_resource type="Script" uid="uid://c3rxhsy68q6r5" path="res://scripts/game_over.gd" id="1_wqhvx"]
+[ext_resource type="Texture2D" uid="uid://ceaslpqg5jdpx" path="res://assets/background.png" id="2_7m3ot"]
+[ext_resource type="Theme" uid="uid://cvgbkdlufbs4j" path="res://assets/theme.tres" id="2_tbwuq"]
+[ext_resource type="Texture2D" uid="uid://xtd03upo8to1" path="res://assets/bottom.png" id="4_v3hpu"]
+[ext_resource type="Texture2D" uid="uid://itjto0iun17v" path="res://assets/dead_turtle.png" id="5_irg28"]
+
+[node name="game_over" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_wqhvx")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("2_7m3ot")
+
+[node name="restart_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -96.0
+offset_top = 344.0
+offset_right = 96.0
+offset_bottom = 397.0
+grow_horizontal = 2
+theme = ExtResource("2_tbwuq")
+text = "Restart"
+
+[node name="menu_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -72.0
+offset_top = 432.0
+offset_right = 72.0
+offset_bottom = 485.0
+grow_horizontal = 2
+theme = ExtResource("2_tbwuq")
+text = "Menu"
+
+[node name="Bottom" type="Sprite2D" parent="."]
+position = Vector2(368, 600)
+texture = ExtResource("4_v3hpu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+
+[node name="DeadTurtle" type="Sprite2D" parent="."]
+position = Vector2(176, 560)
+scale = Vector2(1.9999999, 1.9999961)
+texture = ExtResource("5_irg28")

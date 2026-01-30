@@ -1,0 +1,24 @@
+[gd_scene load_steps=4 format=3 uid="uid://btcotk4nfnl4q"]
+
+[ext_resource type="Script" uid="uid://b6u3yr5urd4ur" path="res://scripts/object/world_border.gd" id="1_payim"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_lhdb0"]
+size = Vector2(704, 8)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_payim"]
+size = Vector2(704, 80)
+
+[node name="world_border" type="Node2D"]
+script = ExtResource("1_payim")
+
+[node name="top_collision" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="top_collision"]
+position = Vector2(352, 4)
+shape = SubResource("RectangleShape2D_lhdb0")
+
+[node name="floor_collision" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="floor_collision"]
+position = Vector2(352, 600)
+shape = SubResource("RectangleShape2D_payim")

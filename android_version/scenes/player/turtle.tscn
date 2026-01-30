@@ -1,0 +1,196 @@
+[gd_scene load_steps=21 format=3 uid="uid://dqusmtepxu1qp"]
+
+[ext_resource type="Texture2D" uid="uid://itjto0iun17v" path="res://assets/sprites/dead_turtle.png" id="1_fu3h4"]
+[ext_resource type="Script" uid="uid://cn3sx3w1wjyy4" path="res://scripts/player/turtle.gd" id="1_rdoik"]
+[ext_resource type="Texture2D" uid="uid://b85x1l2nmmael" path="res://assets/sprites/swimming_turtle.png" id="2_rdoik"]
+[ext_resource type="Texture2D" uid="uid://codnkkp6cjkkm" path="res://assets/sprites/dying_turtle.png" id="3_rk67l"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ea8mt"]
+atlas = ExtResource("2_rdoik")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ovunn"]
+atlas = ExtResource("3_rk67l")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_nler1"]
+atlas = ExtResource("3_rk67l")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_6ndqt"]
+atlas = ExtResource("3_rk67l")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_hyf6v"]
+atlas = ExtResource("3_rk67l")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rdoik"]
+atlas = ExtResource("2_rdoik")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_rk67l"]
+atlas = ExtResource("2_rdoik")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_ms2j8"]
+atlas = ExtResource("2_rdoik")
+region = Rect2(0, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_xrhnd"]
+atlas = ExtResource("2_rdoik")
+region = Rect2(32, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_gabfs"]
+atlas = ExtResource("2_rdoik")
+region = Rect2(64, 0, 32, 32)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wvp21"]
+atlas = ExtResource("2_rdoik")
+region = Rect2(96, 0, 32, 32)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_sy6tp"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_fu3h4")
+}],
+"loop": true,
+"name": &"dead",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ea8mt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ovunn")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_nler1")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_6ndqt")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_hyf6v")
+}],
+"loop": false,
+"name": &"dying",
+"speed": 8.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rdoik")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_rk67l")
+}],
+"loop": true,
+"name": &"idle",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_ms2j8")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_xrhnd")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_gabfs")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wvp21")
+}],
+"loop": true,
+"name": &"swimming",
+"speed": 8.0
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_rdoik"]
+radius = 17.044247
+height = 65.49316
+
+[sub_resource type="Animation" id="Animation_rk67l"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_rdoik"]
+resource_name = "jump"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("AnimatedSprite2D:position")
+tracks/0/interp = 2
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("CollisionShape2D:position")
+tracks/1/interp = 2
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, 0), Vector2(0, -16)]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_rk67l"]
+_data = {
+&"RESET": SubResource("Animation_rk67l"),
+&"up_&_down": SubResource("Animation_rdoik")
+}
+
+[node name="turtle" type="Area2D"]
+position = Vector2(72, 288)
+script = ExtResource("1_rdoik")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+scale = Vector2(2, 2)
+sprite_frames = SubResource("SpriteFrames_sy6tp")
+animation = &"dying"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+rotation = 1.2042772
+scale = Vector2(0.8171898, 1.0545638)
+shape = SubResource("CapsuleShape2D_rdoik")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+&"": SubResource("AnimationLibrary_rk67l")
+}
+
+[connection signal="body_entered" from="." to="." method="_on_body_entered"]

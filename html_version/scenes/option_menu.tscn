@@ -1,0 +1,134 @@
+[gd_scene load_steps=6 format=3 uid="uid://d2he1jjusgrth"]
+
+[ext_resource type="Script" uid="uid://5d0nauxg2nhm" path="res://scripts/option_menu.gd" id="1_1xj3o"]
+[ext_resource type="Texture2D" uid="uid://ceaslpqg5jdpx" path="res://assets/background.png" id="1_hecwe"]
+[ext_resource type="Theme" uid="uid://cvgbkdlufbs4j" path="res://assets/theme.tres" id="3_hrgik"]
+[ext_resource type="Texture2D" uid="uid://xtd03upo8to1" path="res://assets/bottom.png" id="4_hrgik"]
+[ext_resource type="PackedScene" uid="uid://raj6lfdqiofe" path="res://scenes/volume.tscn" id="5_2mid4"]
+
+[node name="option_menu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_1xj3o")
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_hecwe")
+
+[node name="option_title" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -110.0
+offset_top = 32.0
+offset_right = 110.0
+offset_bottom = 112.0
+grow_horizontal = 2
+theme = ExtResource("3_hrgik")
+theme_override_font_sizes/font_size = 65
+text = "Options"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="back_button" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -88.0
+offset_top = 488.0
+offset_right = 88.0
+offset_bottom = 544.0
+grow_horizontal = 2
+theme = ExtResource("3_hrgik")
+text = "Back"
+
+[node name="Bottom" type="Sprite2D" parent="."]
+position = Vector2(368, 600)
+texture = ExtResource("4_hrgik")
+
+[node name="master_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.4
+anchor_right = 0.5
+anchor_bottom = 0.4
+offset_left = -64.0
+offset_top = -24.0
+offset_right = 64.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hrgik")
+theme_override_font_sizes/font_size = 48
+text = "Master"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="master_slider" parent="." instance=ExtResource("5_2mid4")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 264.0
+offset_right = 224.0
+offset_bottom = 312.0
+bus_name = "Master"
+
+[node name="music_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.527
+anchor_right = 0.5
+anchor_bottom = 0.527
+offset_left = -40.0
+offset_top = -17.279999
+offset_right = 40.0
+offset_bottom = 17.720001
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("3_hrgik")
+theme_override_font_sizes/font_size = 40
+text = "Music"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="music_slider" parent="." instance=ExtResource("5_2mid4")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 352.0
+offset_right = 224.0
+offset_bottom = 368.0
+bus_name = "music"
+
+[node name="sfx_label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = -1
+anchor_left = 0.5
+anchor_top = 0.637
+anchor_right = 0.5
+anchor_bottom = 0.637
+offset_left = -40.0
+offset_top = -31.680023
+offset_right = 33.0
+offset_bottom = 25.319977
+theme = ExtResource("3_hrgik")
+theme_override_font_sizes/font_size = 40
+text = "SFX"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="sfx_slider" parent="." instance=ExtResource("5_2mid4")]
+layout_mode = 0
+offset_left = 120.0
+offset_top = 424.0
+offset_right = 224.0
+offset_bottom = 440.0
+bus_name = "sfx"

@@ -1,0 +1,59 @@
+[gd_scene load_steps=9 format=3 uid="uid://limn4aqu7st8"]
+
+[ext_resource type="PackedScene" uid="uid://dp70of3qe0nar" path="res://scenes/turtle.tscn" id="1_o5qli"]
+[ext_resource type="Script" uid="uid://c0atulu6ytmf5" path="res://scripts/gamemanager.gd" id="1_sugp2"]
+[ext_resource type="Texture2D" uid="uid://ceaslpqg5jdpx" path="res://assets/background.png" id="2_0wfyh"]
+[ext_resource type="PackedScene" uid="uid://s24fmxlqdla7" path="res://scenes/coral.tscn" id="2_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://nbtgv5nixtla" path="res://scenes/ground.tscn" id="4_jyhfs"]
+[ext_resource type="Theme" uid="uid://cvgbkdlufbs4j" path="res://assets/theme.tres" id="6_tefeu"]
+[ext_resource type="PackedScene" uid="uid://b3cw8hwg2gml2" path="res://scenes/game_over.tscn" id="7_o6xl0"]
+[ext_resource type="AudioStream" uid="uid://bnqs5y3jj7ru3" path="res://assets/sounds/Pickup.wav" id="8_tipki"]
+
+[node name="main" type="Node"]
+script = ExtResource("1_sugp2")
+coral_scene = ExtResource("2_tbgi4")
+
+[node name="background" type="Sprite2D" parent="."]
+position = Vector2(176, 320)
+texture = ExtResource("2_0wfyh")
+
+[node name="turtle" parent="." instance=ExtResource("1_o5qli")]
+z_index = 1
+position = Vector2(72, 289)
+
+[node name="ground" parent="." instance=ExtResource("4_jyhfs")]
+z_index = 1
+
+[node name="sfx_score" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2, 7)
+stream = ExtResource("8_tipki")
+bus = &"sfx"
+
+[node name="coral_timer" type="Timer" parent="."]
+wait_time = 1.5
+
+[node name="score_label" type="Label" parent="."]
+z_index = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -176.0
+offset_top = 1.0
+offset_right = 176.0
+offset_bottom = 134.0
+grow_horizontal = 2
+size_flags_horizontal = 4
+theme = ExtResource("6_tefeu")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+text = "Score: 0"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="game_over" parent="." instance=ExtResource("7_o6xl0")]
+visible = false
+z_index = 2
+
+[connection signal="hit" from="ground" to="." method="_on_ground_hit"]
+[connection signal="timeout" from="coral_timer" to="." method="_on_coral_timer_timeout"]
+[connection signal="restart" from="game_over" to="." method="_on_game_over_restart"]

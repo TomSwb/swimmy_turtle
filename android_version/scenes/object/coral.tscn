@@ -1,0 +1,15 @@
+[gd_scene load_steps=3 format=3 uid="uid://q4j5meqy5w3q"]
+
+[ext_resource type="Texture2D" uid="uid://cqf5qop1m8l3l" path="res://assets/sprites/coral.png" id="2_mgv1n"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vfof4"]
+size = Vector2(32, 448)
+
+[node name="coral" type="CharacterBody2D"]
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("2_mgv1n")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+shape = SubResource("RectangleShape2D_vfof4")

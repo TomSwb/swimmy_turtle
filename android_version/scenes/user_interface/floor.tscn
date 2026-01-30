@@ -1,0 +1,16 @@
+[gd_scene load_steps=3 format=3 uid="uid://dfrhg5dalgvr2"]
+
+[ext_resource type="Script" uid="uid://ubiovonj37ba" path="res://scripts/user_interface/floor.gd" id="1_tnlfe"]
+[ext_resource type="Texture2D" path="res://assets/sprites/bottom.png" id="3_jkv86"]
+
+[node name="floor" type="ParallaxBackground"]
+script = ExtResource("1_tnlfe")
+
+[node name="floor" type="ParallaxLayer" parent="."]
+motion_scale = Vector2(1.5, 1)
+motion_mirroring = Vector2(352, 0)
+
+[node name="sprite2D" type="Sprite2D" parent="floor"]
+position = Vector2(176.5, 600)
+scale = Vector2(0.47961956, 1)
+texture = ExtResource("3_jkv86")

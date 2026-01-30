@@ -1,0 +1,19 @@
+# Godot
+.import/
+.export/
+*.import
+*.translation
+
+# Godot editor files
+.godot/
+*.godot
+/android/
+
+# Builds
+builds/
+export/
+
+# OS junk
+.DS_Store
+Thumbs.db
+

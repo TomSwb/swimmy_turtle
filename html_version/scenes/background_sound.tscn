@@ -1,0 +1,9 @@
+[gd_scene load_steps=2 format=3 uid="uid://dtyhw0d2lnjp5"]
+
+[ext_resource type="AudioStream" uid="uid://5i3f4ws4rvmu" path="res://assets/sounds/water_Vast Ocean.mp3" id="1_aa5yj"]
+
+[node name="background_sound" type="AudioStreamPlayer2D"]
+stream = ExtResource("1_aa5yj")
+volume_db = -10.0
+autoplay = true
+bus = &"music"
