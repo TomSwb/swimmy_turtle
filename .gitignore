@@ -6,7 +6,6 @@
 
 # Godot editor files
 .godot/
-*.godot
 /android/
 
 # Builds

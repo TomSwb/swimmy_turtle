@@ -1,51 +1,43 @@
-🐢 Swimmy Turtle
+# 🐢 Swimmy Turtle
 
-Swimmy Turtle is a casual 2D arcade game inspired by Flappy Bird, built with Godot.
-You control a turtle swimming through the ocean, dodging obstacles and trying to survive as long as possible while beating your best score.
+A casual 2D arcade game made with **Godot 4**, inspired by Flappy Bird. Swim a turtle through the gaps between corals, score a point for every gap, and try to beat your best score.
 
-Simple mechanics, tight controls, and classic “just one more try” gameplay.
+> **Status: released (January 2026).**
+>
+> 🎮 **[Play it in your browser, or download the Android version, on itch.io](https://tombitminded.itch.io/swimmy-turtle)**
 
-🎮 Gameplay
+<!-- Add a screenshot or GIF here: ![Swimmy Turtle gameplay](docs/screenshot.png) -->
 
-- Tap / click to make the turtle swim upward
+## Gameplay
 
-- Avoid obstacles (corals)
+- Tap or click to make the turtle swim upward; let go and it sinks.
+- Corals come in pairs at random heights: get through the gap to score.
+- Touching a coral ends the run.
+- Options menu with volume settings.
+- On Android, your best score is saved on the device.
 
-- Each successful pass increases your score
+## Two versions
 
-- Game ends on collision
+The repo holds two builds of the game, both published on itch.io.
 
-- Best score is saved locally
+| Folder | Published as | What it is |
+|---|---|---|
+| `html_version/` | Browser version | The first version. One game-manager script handles scrolling, spawning and scoring. |
+| `android_version/` | Android APK | A rewrite of the same game, organised by role (`player/`, `object/`, `user_interface/`, `main/`), with a dedicated coral spawner and the best score saved to the device (`user://save.dat`). |
 
-🛠 Built With
+Comparing the two shows how the code changed once I understood Godot better: smaller scripts with one job each, grouped by role, instead of one script doing everything.
 
-Godot Engine (2D)
+## Run it
 
-GDScript
+The easiest way is [itch.io](https://tombitminded.itch.io/swimmy-turtle): play in the browser, or download the APK and install it on an Android phone.
 
-Designed for:
+The source here is for reading. The art and audio are kept in a separate private repository, so the project will not open in Godot from this repo alone.
 
-Desktop (HTML)
+## AI use
 
-Mobile (Android)
+- **Code:** the game code (GDScript and scenes) is written by hand. AI assistants were used as a learning aid, to explain Godot concepts and debug ideas, not to generate the game code.
+- **Documentation:** this README was drafted with Claude (Anthropic) from the project's code, then reviewed and corrected by me.
 
-PWA-friendly builds (except the safe functions)
+## License
 
-💾 Saving
-
-Best score is stored using local storage (platform-dependent)
-Works on desktop and browser
-Mobile / PWA persistence may depend on platform settings
-
-🚀 How to Run
-
-Go to https://tombitminded.itch.io/swimmy-turtle
-Play in browser
-
-Download the apk file, install on Android and play on your phone.
-
-📜 License
-
-Personal / learning project.
-All right reserved.
-Assets and code may be replaced or relicensed later.
+Personal project. All rights reserved (see [LICENSE](LICENSE)).
