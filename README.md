@@ -6,7 +6,7 @@ A casual 2D arcade game made with **Godot 4**, inspired by Flappy Bird. Swim a t
 >
 > 🎮 **[Play it in your browser, or download the Android version, on itch.io](https://tombitminded.itch.io/swimmy-turtle)**
 
-<!-- Add a screenshot or GIF here: ![Swimmy Turtle gameplay](docs/screenshot.png) -->
+![Swimmy Turtle gameplay](docs/screenshot.png)
 
 ## Gameplay
 
